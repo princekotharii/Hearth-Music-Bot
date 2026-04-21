@@ -1,9 +1,9 @@
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/features", label: "Features" },
-  { href: "/commands", label: "Commands" },
-  { href: "/premium", label: "Premium" },
-  { href: "/support", label: "Support" },
+  { href: "/about", label: "About" },
+  { href: "/documentation", label: "Documentation" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact Us" },
 ];
 
 export const quickStats = [
@@ -85,16 +85,82 @@ export const supportFaq = [
   {
     question: "How do I invite Hearth?",
     answer:
-      "Use the invite button, approve permissions, then type /play once you are in a voice channel.",
+      "Use the invite button, approve permissions, then type .play once you are in a voice channel.",
   },
   {
-    question: "Does Hearth support slash commands?",
+    question: "Does Hearth use a prefix?",
     answer:
-      "Yes. Hearth is fully slash-command-first for a cleaner and faster Discord experience.",
+      "Yes. Hearth uses the default prefix . for a faster, familiar Discord music workflow.",
+  },
+  {
+    question: "Can I control who uses music commands?",
+    answer:
+      "Yes. You can manage DJ roles, restrict channels, and limit who can control playback.",
+  },
+  {
+    question: "How do I make the queue cleaner?",
+    answer:
+      "Use /shuffle, /remove, and /move to keep the setlist organized during long sessions.",
+  },
+  {
+    question: "Does Hearth work in multiple servers?",
+    answer:
+      "Yes. Hearth can be invited to multiple Discord servers and configured separately.",
   },
   {
     question: "Where can I report issues?",
     answer:
       "Join the support server and open a help ticket with logs or screenshots for fast assistance.",
+  },
+  {
+    question: "Can I tune the audio quality?",
+    answer:
+      "Yes. Hearth supports filters, volume controls, and playback settings for a better listening vibe.",
+  },
+];
+
+export const docsSections = [
+  {
+    title: "Quick Setup",
+    items: ["Invite Hearth", "Set voice permissions", "Run .play in a channel"],
+  },
+  {
+    title: "Playback Guide",
+    items: [".pause and .resume", "Queue reorder", ".loop and .shuffle controls"],
+  },
+  {
+    title: "Audio Controls",
+    items: ["EQ tuning", "Volume presets", "Auto-DJ and filters"],
+  },
+  {
+    title: "Troubleshooting",
+    items: ["Bot not joining", "Permissions missing", "Queue not responding"],
+  },
+];
+
+export const aboutStats = [
+  { label: "Music Rooms Live", value: "6,500+" },
+  { label: "Tracks Streamed", value: "1.2M" },
+  { label: "Average Response", value: "< 120ms" },
+];
+
+export const contactChannels = [
+  { title: "Support Server", detail: "Join our Discord help space for fast setup help." },
+  { title: "Email", detail: "Reach the team for partnerships and server-specific help." },
+  { title: "Feature Requests", detail: "Send ideas for new queue tools, filters, or themes." },
+];
+
+export const aboutHighlights = [
+  {
+    title: "Built for live music rooms",
+    description: "Designed to keep community music sessions smooth, warm, and responsive.",
+  },
+  {
+    title: "Visual vibe matters",
+    description: "Every screen uses music-inspired cards, glowing accents, and strong hierarchy.",
+  },
+  {
+    title: "Fast commands, clean control",
+    description: "Slash-first interactions make it easy to run a server like a live show.",
   },
 ];
