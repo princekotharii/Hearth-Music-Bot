@@ -7,9 +7,8 @@ export const navLinks = [
 ];
 
 export const quickStats = [
-  { label: "Live Servers", value: "6,500+" },
-  { label: "Tracks Streamed Daily", value: "1.2M" },
-  { label: "Voice Stability", value: "99.99%" },
+  { label: "Uptime", value: "99.99%" },
+  { label: "Average Ping", value: "42ms" },
 ];
 
 export const coreFeatures = [
