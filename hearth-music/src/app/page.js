@@ -1,15 +1,15 @@
 import Link from "next/link";
 import {
   FiClock,
-  FiDisc,
   FiHeadphones,
+  FiList,
   FiMusic,
   FiPlayCircle,
   FiRadio,
-  FiSliders,
-  FiStar,
   FiTrendingUp,
   FiUsers,
+  FiVolume2,
+  FiZap,
 } from "react-icons/fi";
 import FeatureCard from "@/components/feature-card";
 import SectionHeading from "@/components/section-heading";
@@ -17,81 +17,86 @@ import StatCard from "@/components/stat-card";
 import { coreFeatures, quickStats } from "@/data/site";
 
 const statIcons = [FiUsers, FiMusic, FiTrendingUp];
-const homeFeatureIcons = [FiHeadphones, FiRadio, FiStar];
+const homeFeatureIcons = [FiHeadphones, FiRadio, FiZap];
 const liveTracks = [
-  { title: "Starlight Echoes", artist: "Aria Flux", time: "03:42" },
-  { title: "Midnight Metro", artist: "Nova Key", time: "02:58" },
-  { title: "Fever Frequency", artist: "Skyline Unit", time: "04:11" },
+  {
+    title: "Now Playing",
+    icon: FiMusic,
+    lineOne: "Blinding Lights",
+    lineTwo: "The Weeknd",
+    meta: "1/21",
+  },
+  {
+    title: "Queue",
+    icon: FiList,
+    lineOne: "1. Levitating - Dua Lipa",
+    lineTwo: "2. Stay - Kid LAROI",
+    meta: "3 songs",
+  },
+  {
+    title: "Lyrics",
+    icon: FiHeadphones,
+    lineOne: "Through the neon lights and rain",
+    lineTwo: "This city never sleeps tonight",
+    meta: "Live",
+  },
+  {
+    title: "Volume",
+    icon: FiVolume2,
+    lineOne: "Master Output",
+    lineTwo: "75%",
+    meta: "Stable",
+  },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <section className="section hero-section">
-        <div className="container hero-grid">
-          <div>
-            <p className="eyebrow">Drop The Beat In Discord</p>
-            <h1>Hearth is your always-on music stage for every community.</h1>
-            <p className="hero-copy">
-              Spin high-energy listening rooms with stable playback, crowd-driven
-              queues, and controls that feel like a real DJ deck inside Discord.
-            </p>
-            <div className="hero-actions">
-              <Link href="/support" className="button button-primary">
-                Add To Discord
-              </Link>
-              <Link href="/features" className="button button-ghost">
-                Hear The Features
-              </Link>
-            </div>
+      <section className="section ref-hero">
+        <div className="container ref-hero-inner">
+          <p className="ref-kicker">Stream music, control playback, and vibe - all in Discord</p>
+          <h1>The #1 Free Discord Music Bot For Every Server!</h1>
+          <p className="ref-copy">
+            The best free Discord music bot with crystal-clear playback, smart
+            queue controls, and powerful command tools built for every server.
+          </p>
 
-            <div className="wave-strip" aria-hidden="true">
-              {Array.from({ length: 36 }).map((_, index) => (
-                <span key={index} style={{ animationDelay: `${index * 0.06}s` }} />
-              ))}
-            </div>
+          <div className="ref-actions">
+            <Link href="/documentation" className="button button-primary">
+              Add Hearth - it&apos;s free
+            </Link>
+            <Link href="/contact" className="button button-ghost">
+              Contact Us
+            </Link>
           </div>
 
-          <div className="hero-stack">
-            <div className="hero-panel glass-card">
-              <p className="panel-label">Now Mixing</p>
-              <h3>Neon Rooftop Session // Live Queue</h3>
-              <p className="panel-copy">27 tracks lined up by 18 listeners</p>
-              <div className="eq-bars" aria-hidden="true">
-                {Array.from({ length: 12 }).map((_, index) => (
-                  <span key={index} style={{ animationDelay: `${index * 0.12}s` }} />
-                ))}
-              </div>
+          <div className="ref-card-row">
+            {liveTracks.map((track, index) => {
+              const Icon = track.icon;
 
-              <div className="panel-meta-row">
-                <span>
-                  <FiDisc /> Auto-DJ Active
-                </span>
-                <span>
-                  <FiSliders /> Bass Boost +15%
-                </span>
-              </div>
-            </div>
-
-            <div className="playlist-card glass-card">
-              <h3>Tonight&apos;s Setlist</h3>
-              <div className="playlist-list">
-                {liveTracks.map((track) => (
-                  <div className="playlist-item" key={track.title}>
-                    <span className="play-icon">
-                      <FiPlayCircle />
-                    </span>
-                    <div>
-                      <p className="track-title">{track.title}</p>
-                      <p className="track-artist">{track.artist}</p>
-                    </div>
-                    <span className="track-time">
-                      <FiClock /> {track.time}
-                    </span>
+              return (
+                <article key={track.title} className={`ref-mini-card card-${index + 1}`}>
+                  <p className="mini-head">
+                    <Icon /> {track.title}
+                  </p>
+                  <div className="mini-body">
+                    <p>{track.lineOne}</p>
+                    <p>{track.lineTwo}</p>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <p className="mini-meta">{track.meta}</p>
+                  {track.title === "Now Playing" ? (
+                    <div className="mini-controls" aria-hidden="true">
+                      <span>
+                        <FiPlayCircle />
+                      </span>
+                      <span>
+                        <FiClock />
+                      </span>
+                    </div>
+                  ) : null}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -113,8 +118,8 @@ export default function HomePage() {
         <div className="container">
           <SectionHeading
             eyebrow="Sound Engine"
-            title="Production-grade tools for nonstop community sessions"
-            description="Hearth balances clean output, crowd control, and fast commands so your music never loses momentum."
+            title="Designed like a live audio console, not a basic bot"
+            description="Every page is built for rhythm, stability, and a music-first experience across the entire site."
           />
           <div className="feature-grid">
             {coreFeatures.slice(0, 3).map((feature, index) => (
