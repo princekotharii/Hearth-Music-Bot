@@ -30,6 +30,14 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full antialiased">
         <div className="site-shell">
+          <div className="music-bg" aria-hidden="true">
+            <span className="music-orb orb-1" />
+            <span className="music-orb orb-2" />
+            <span className="music-orb orb-3" />
+            <span className="music-note note-1">♪</span>
+            <span className="music-note note-2">♫</span>
+            <span className="music-note note-3">♬</span>
+          </div>
           <Navigation />
           <main className="page-content">{children}</main>
           <Footer />
