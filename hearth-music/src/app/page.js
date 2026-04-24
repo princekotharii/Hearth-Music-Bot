@@ -38,6 +38,16 @@ export default function HomePage() {
       <section className="section home-fusion-hero">
         <div className="container home-fusion-hero-grid">
           <div className="home-fusion-main">
+            <div className="home-fusion-hero-badge">
+              <span className="home-fusion-live-dot" />
+              <span>Live audio room</span>
+              <span className="home-fusion-mini-wave" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </span>
+            </div>
             <p className="home-fusion-kicker">Hearth Music Bot</p>
             <h1>
               Discord Music,
@@ -72,6 +82,10 @@ export default function HomePage() {
 
           <aside className="home-fusion-side" aria-hidden="true">
             <div className="home-fusion-logo-card glass-card">
+              <span className="home-fusion-logo-ring home-fusion-logo-ring-1" />
+              <span className="home-fusion-logo-ring home-fusion-logo-ring-2" />
+              <span className="home-fusion-logo-spark" />
+              <div className="home-fusion-logo-stage">
               <Image
                 src="/hearth-log-withoutbg.png"
                 alt=""
@@ -79,6 +93,7 @@ export default function HomePage() {
                 height={360}
                 className="home-fusion-logo"
               />
+              </div>
               <p>HEARTH AUDIO CORE</p>
             </div>
 
