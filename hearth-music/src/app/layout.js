@@ -37,6 +37,11 @@ export default function RootLayout({ children }) {
       <body className="min-h-full antialiased">
         <div className="site-shell">
           <div className="music-bg" aria-hidden="true">
+            <span className="ambient-grid" />
+            <span className="ambient-glow ambient-glow-1" />
+            <span className="ambient-glow ambient-glow-2" />
+            <span className="ambient-glow ambient-glow-3" />
+            <span className="ambient-sweep" />
             <span className="music-orb orb-1" />
             <span className="music-orb orb-2" />
             <span className="music-orb orb-3" />
