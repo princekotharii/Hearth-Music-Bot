@@ -1,23 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
-  FiClock,
+  FiArrowRight,
+  FiCommand,
   FiHeadphones,
   FiMusic,
-  FiPlayCircle,
   FiRadio,
   FiShield,
-  FiTrendingUp,
   FiUsers,
-  FiVolume2,
   FiZap,
 } from "react-icons/fi";
-import FeatureCard from "@/components/feature-card";
-import SectionHeading from "@/components/section-heading";
-import StatCard from "@/components/stat-card";
 import { coreFeatures, quickStats } from "@/data/site";
 
-const statIcons = [FiShield, FiClock];
-const homeFeatureIcons = [FiHeadphones, FiRadio, FiZap];
+const featureIcons = [FiHeadphones, FiRadio, FiCommand, FiZap];
 
 const flowSteps = [
   { step: ".play", title: "Start the session", text: "Drop a track and let Hearth join the room instantly." },
@@ -31,137 +26,163 @@ const queuePreview = [
   { name: "Blinding Lights", artist: "The Weeknd", duration: "3:20" },
 ];
 
+const trustStrip = [
+  { icon: FiShield, text: "99.99% uptime" },
+  { icon: FiUsers, text: "42K+ active servers" },
+  { icon: FiMusic, text: "180K+ queue actions daily" },
+];
+
 export default function HomePage() {
   return (
     <>
-      <section className="section ref-hero">
-        <div className="container ref-hero-inner">
-          <p className="ref-kicker">Stream music, control playback, and vibe - all in Discord</p>
-          <h1>Free Discord Music Bot For Every Server!</h1>
-          <p className="ref-copy">
-            The best free Discord music bot with crystal-clear playback, smart
-            queue controls, and powerful command tools built for every server.
-          </p>
+      <section className="section home-fusion-hero">
+        <div className="container home-fusion-hero-grid">
+          <div className="home-fusion-main">
+            <p className="home-fusion-kicker">Hearth Music Bot</p>
+            <h1>
+              Discord Music,
+              <span>Run Like A Live Room.</span>
+            </h1>
+            <p className="home-fusion-sub">
+              Fast commands, cleaner queues, and stable playback in one focused
+              experience built for communities that actually listen together.
+            </p>
 
-          <div className="ref-actions">
-            <Link href="/documentation" className="button button-primary">
-              Add Hearth - it&apos;s free
-            </Link>
-            <Link href="/contact" className="button button-ghost">
-              Contact Us
-            </Link>
-          </div>
-
-          <div className="hero-player-dock glass-card">
-            <div className="dock-main">
-              <p className="mini-head">
-                <FiMusic /> Now Playing
-              </p>
-              <h3>Blinding Lights</h3>
-              <p className="dock-artist">The Weeknd</p>
-              <div className="dock-progress" aria-hidden="true">
-                <span />
-              </div>
-              <div className="dock-controls" aria-hidden="true">
-                <span>
-                  <FiPlayCircle />
-                </span>
-                <span>
-                  <FiVolume2 /> 75%
-                </span>
-                <span>
-                  <FiClock /> 1:21 / 3:20
-                </span>
-              </div>
+            <div className="home-fusion-actions">
+              <Link href="/support" className="button button-primary">
+                Invite Hearth
+              </Link>
+              <Link href="/documentation" className="button button-ghost">
+                Open Docs
+              </Link>
             </div>
 
-            <div className="dock-queue">
-              <p className="mini-head">Queue Preview</p>
+            <div className="home-fusion-trust-row">
+              {trustStrip.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <span key={item.text}>
+                    <Icon /> {item.text}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+
+          <aside className="home-fusion-side" aria-hidden="true">
+            <div className="home-fusion-logo-card glass-card">
+              <Image
+                src="/hearth-log-withoutbg.png"
+                alt=""
+                width={360}
+                height={360}
+                className="home-fusion-logo"
+              />
+              <p>HEARTH AUDIO CORE</p>
+            </div>
+
+            <div className="home-fusion-now glass-card">
+              <p className="home-fusion-now-head">
+                <FiMusic /> Queue Live
+              </p>
               {queuePreview.map((track) => (
-                <div className="dock-queue-row" key={track.name}>
+                <div className="home-fusion-now-row" key={track.name}>
                   <div>
-                    <p className="track-title">{track.name}</p>
-                    <p className="track-artist">{track.artist}</p>
+                    <p>{track.name}</p>
+                    <span>{track.artist}</span>
                   </div>
-                  <span className="track-time">{track.duration}</span>
+                  <strong>{track.duration}</strong>
                 </div>
               ))}
             </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="section home-fusion-metrics">
+        <div className="container home-fusion-metrics-grid">
+          {quickStats.map((stat) => (
+            <article className="home-fusion-metric" key={stat.label}>
+              <p>{stat.value}</p>
+              <span>{stat.label}</span>
+            </article>
+          ))}
+          <article className="home-fusion-metric">
+            <p>42K+</p>
+            <span>Active Servers</span>
+          </article>
+          <article className="home-fusion-metric">
+            <p>180K+</p>
+            <span>Daily Queue Actions</span>
+          </article>
+        </div>
+      </section>
+
+      <section className="section home-fusion-features">
+        <div className="container home-fusion-feature-grid">
+          <article className="home-fusion-manifesto">
+            <p className="eyebrow">The Difference</p>
+            <h2>Built for rooms where music is the main event.</h2>
+            <p>
+              Hearth cuts command friction and keeps playback predictable,
+              so moderators control flow without killing momentum.
+            </p>
+          </article>
+
+          <div className="home-fusion-card-list">
+            {coreFeatures.slice(0, 4).map((feature, index) => {
+              const Icon = featureIcons[index % featureIcons.length];
+
+              return (
+                <article className="home-fusion-feature-card" key={feature.title}>
+                  <span className="home-fusion-feature-icon">
+                    <Icon />
+                  </span>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container stat-grid">
-          {quickStats.map((stat, index) => (
-            <StatCard
-              key={stat.label}
-              icon={statIcons[index]}
-              label={stat.label}
-              value={stat.value}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container session-grid">
-          <div className="session-copy glass-card">
-            <p className="panel-label">Session Flow</p>
-            <h2>Built for the rhythm of a real music room</h2>
-            <p>
-              Hearth keeps the setup simple, the queue clean, and the playback
-              smooth so the vibe never drops.
-            </p>
-
-            <div className="session-steps">
+      <section className="section home-fusion-flow">
+        <div className="container home-fusion-flow-grid">
+          <article className="home-fusion-steps-wrap">
+            <p className="eyebrow">Session Flow</p>
+            <h2>Quick path from invite to full control.</h2>
+            <div className="home-fusion-steps">
               {flowSteps.map((item, index) => (
-                <div className="session-step" key={item.step}>
-                  <span className="session-step-number">0{index + 1}</span>
+                <div className="home-fusion-step" key={item.step}>
+                  <span className="home-fusion-step-num">0{index + 1}</span>
                   <div>
-                    <p className="session-step-code">{item.step}</p>
+                    <p className="home-fusion-step-code">{item.step}</p>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
+          </article>
 
-          <div className="session-panel glass-card">
-            <p className="panel-label">Audio Snapshot</p>
-            <h3>Night Drive // Low Noise Mix</h3>
-            <div className="session-eq" aria-hidden="true">
-              {Array.from({ length: 14 }).map((_, index) => (
-                <span key={index} style={{ animationDelay: `${index * 0.08}s` }} />
-              ))}
-            </div>
-            <div className="session-badges">
-              <span>Queue stable</span>
-              <span>Filters on</span>
-              <span>Listener ready</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          <article className="home-fusion-cta">
+            <h3>Ready to run a better Discord music room?</h3>
+            <p>
+              Bring Hearth in, drop your first track, and keep the room moving
+              with cleaner queue control.
+            </p>
 
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Sound Engine"
-            title="Designed like a live audio console, not a basic bot"
-            description="Every page is built for rhythm, stability, and a music-first experience across the entire site."
-          />
-          <div className="feature-grid">
-            {coreFeatures.slice(0, 3).map((feature, index) => (
-              <FeatureCard
-                key={feature.title}
-                icon={homeFeatureIcons[index]}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
+            <div className="home-fusion-cta-actions">
+              <Link href="/support" className="button button-primary">
+                Invite Bot
+              </Link>
+              <Link href="/documentation" className="button button-ghost">
+                Setup Guide <FiArrowRight />
+              </Link>
+            </div>
+          </article>
         </div>
       </section>
     </>
