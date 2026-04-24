@@ -20,6 +20,11 @@ export const metadata = {
   },
   description:
     "A multi-page showcase for Hearth, the Discord music bot built for smooth playback and lively communities.",
+  icons: {
+    icon: "/Hearth-Music.png",
+    shortcut: "/Hearth-Music.png",
+    apple: "/Hearth-Music.png",
+  },
 };
 
 export default function RootLayout({ children }) {

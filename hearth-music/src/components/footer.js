@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   FiGithub,
-  FiHeart,
   FiMessageCircle,
   FiTwitter,
 } from "react-icons/fi";
@@ -51,7 +51,13 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand-row">
             <span className="footer-brand-mark">
-              <FiHeart />
+              <Image
+                src="/hearth-log-withoutbg.png"
+                alt="Hearth logo"
+                width={34}
+                height={34}
+                className="brand-logo"
+              />
             </span>
             <p className="footer-brand">Hearth</p>
           </div>
