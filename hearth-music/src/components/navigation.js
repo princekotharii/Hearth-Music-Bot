@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { FiDisc, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { navLinks } from "@/data/site";
 
 export default function Navigation() {
@@ -18,7 +19,14 @@ export default function Navigation() {
         <div className="nav-pill desktop-pill">
           <Link href="/" className="brand" aria-label="Hearth home page">
             <span className="brand-mark">
-              <FiDisc />
+              <Image
+                src="/hearth-log-withoutbg.png"
+                alt="Hearth logo"
+                width={34}
+                height={34}
+                className="brand-logo"
+                priority
+              />
             </span>
             <span>Hearth</span>
           </Link>
@@ -47,7 +55,14 @@ export default function Navigation() {
 
         <Link href="/" className="brand mobile-brand" aria-label="Hearth home page">
           <span className="brand-mark">
-            <FiDisc />
+            <Image
+              src="/hearth-log-withoutbg.png"
+              alt="Hearth logo"
+              width={34}
+              height={34}
+              className="brand-logo"
+              priority
+            />
           </span>
           <span>Hearth</span>
         </Link>
