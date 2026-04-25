@@ -11,6 +11,7 @@ import {
   FiZap,
 } from "react-icons/fi";
 import { coreFeatures, quickStats } from "@/data/site";
+import "./page.css";
 
 const featureIcons = [FiHeadphones, FiRadio, FiCommand, FiZap];
 
